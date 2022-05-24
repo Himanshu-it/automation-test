@@ -39,4 +39,4 @@ jobs:
            pytest -vs simple_test.py
         env:
           TEST_ENV: "${{github.event.inputs.environment}}"
-          TOKEN_AUTH_ENV: ${{secrets.TOKEN_AUTH}}
+          TOKEN_AUTH_ENV: ${{ secrets.TOKEN_AUTH }}
