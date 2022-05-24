@@ -37,3 +37,5 @@ jobs:
         run: |
            pwd
            pytest -vs simple_test.py
+        env:
+          TEST_ENV: "${{github.event.inputs.environment}}"
