@@ -17,6 +17,10 @@ jobs:
         python-version: ["3.6"]
 
     environment: "${{github.event.inputs.environment}}"
+    
+    env:
+      TEST_ENV: "${{github.event.inputs.environment}}"
+      TOKEN_AUTH_ENV: ${{ secrets.TOKEN_AUTH }}
 
     steps:
       - uses: actions/checkout@v3
@@ -39,6 +43,8 @@ jobs:
         run: |
            pwd
            pytest -vs simple_test.py
-        env:
-          TEST_ENV: "${{github.event.inputs.environment}}"
-          TOKEN_AUTH_ENV: ${{ secrets.TOKEN_AUTH }}
+      - name: Test with pytest again
+        run: |
+           pwd
+           pytest -vs simple_test.py
+           
